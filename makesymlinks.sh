@@ -8,9 +8,14 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc gitconfig gitignore" # list of files/folders to symlink in homedir
+files="vimrc gitconfig gitignore bash_profile bashrc profile" # list of files/folders to symlink in homedir
 
 ##########
+
+# copy git-completion.bash
+echo -n "Copying git-completion.bash ..."
+cp git-completion.bash ~/git-completion.bash
+echo "done"
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
