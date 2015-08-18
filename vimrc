@@ -1,8 +1,8 @@
 "  Vundle
 "
 "
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
+filetype off             " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -56,4 +56,20 @@ set list
 set listchars=tab:>\  " > to highlight <tab> "
 
 
+set t_Co=256              " enable 256-color mode.
 colorscheme desert
+
+
+" Highlight characters that go over 80 columns (by drawing a border on the 81st)
+if exists('+colorcolumn')
+  set colorcolumn=81
+  highlight ColorColumn ctermbg=red
+else
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.\+/
+endif
+
+
+
+set ignorecase            " Make searches case-insensitive.
+set shiftround            " always indent/outdent to the nearest tabstop
