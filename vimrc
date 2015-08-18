@@ -25,7 +25,7 @@ call vundle#begin()
             echo "Installing Vundle..."
             echo ""
             silent !mkdir -p $HOME/.vim/bundle
-            silent !git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
+            silent !git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
             let has_vundle=0
         endif
     """ }}}
