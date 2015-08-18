@@ -14,5 +14,3 @@
 [core]
 	editor = vim
 	excludesfile = /Users/cbrown/.gitignore
-[push]
-	default = simple
