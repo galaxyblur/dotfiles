@@ -40,6 +40,7 @@ call vundle#begin()
 
           Plugin 'tpope/vim-sensible'
           Plugin 'flazz/vim-colorschemes'
+          Plugin 'sjl/badwolf'
           Plugin 'groenewege/vim-less'
           Plugin 'elzr/vim-json'
           Plugin 'Townk/vim-autoclose'
@@ -88,7 +89,7 @@ set listchars=tab:>\  " > to highlight <tab> "
 
 
 set t_Co=256              " enable 256-color mode.
-colorscheme desert
+colorscheme badwolf
 
 
 " Highlight characters that go over 80 columns (by drawing a border on the 81st)
