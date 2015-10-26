@@ -10,6 +10,8 @@ fi
 export PATH=~/bin:$HOME/Library/Android/sdk/platform-tools/:$HOME/Library/Android/sdk/tools/:$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
 
+umask 0002
+
 gerpush() {
   git push gerrit HEAD:refs/for/$1
 }
