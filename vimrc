@@ -52,6 +52,7 @@ call vundle#begin()
           Plugin 'JavaScript-Indent'
           Plugin 'digitaltoad/vim-jade'
           Plugin 'scrooloose/nerdcommenter'
+          Plugin 'ap/vim-css-color'
 
     """ Installing plugins the first time, quits when done {{{
         if has_vundle == 0
