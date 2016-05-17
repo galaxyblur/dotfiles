@@ -7,7 +7,7 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export PATH=~/bin:$HOME/Library/Android/sdk/platform-tools/:$HOME/Library/Android/sdk/tools/:$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+export PATH=~/bin:$HOME/Library/Android/sdk/platform-tools/:$HOME/Library/Android/sdk/tools/:$HOME/.npm/bin:$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 #export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
 
 umask 0002
