@@ -45,6 +45,9 @@ set listchars=tab:>\  " > to highlight <tab> "
 
 set cursorline        " highlight current line
 
+set number
+set relativenumber
+
 set t_Co=256 " enable 256-color mode.
 colorscheme ego
 
