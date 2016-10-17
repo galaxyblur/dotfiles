@@ -37,11 +37,13 @@ call plug#end()
 set so=7
 
 set shiftwidth=2
-set tabstop=2
-set expandtab         
+set tabstop=2         " number of visual spaces per TAB
+set softtabstop=2     " number of spaces in tab when editing
+set expandtab         " tabs are spaces
 set list
 set listchars=tab:>\  " > to highlight <tab> "
 
+set cursorline        " highlight current line
 
 set t_Co=256 " enable 256-color mode.
 colorscheme ego
@@ -58,5 +60,7 @@ endif
 
 
 
-set ignorecase            " Make searches case-insensitive.
-set shiftround            " always indent/outdent to the nearest tabstop
+set incsearch     " search as characters are entered
+set hlsearch      " highlight matches
+set ignorecase    " Make searches case-insensitive.
+set shiftround    " always indent/outdent to the nearest tabstop
