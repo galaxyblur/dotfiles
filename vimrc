@@ -38,7 +38,6 @@ set so=7
 
 set shiftwidth=2
 set tabstop=2         " number of visual spaces per TAB
-set softtabstop=2     " number of spaces in tab when editing
 set expandtab         " tabs are spaces
 set list
 set listchars=tab:>\  " > to highlight <tab> "
