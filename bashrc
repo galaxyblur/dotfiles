@@ -16,6 +16,31 @@ gerpush() {
   git push gerrit HEAD:refs/for/$1
 }
 
+# https://adrianperez.org/improving-dev-environments-all-the-http-things/
+docker-serve-start-proxy() {
+  echo "Did you create /etc/resolver/dev?"
+  echo "  nameserver 127.0.0.1"
+  echo "  port 53535"
+  echo ""
+
+  docker run -d -p 8080:80 --name nginx-proxy --restart always -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+  docker run -d -p 53535:53/tcp -p 53535:53/udp --name dnsmasq --restart always --cap-add NET_ADMIN andyshinn/dnsmasq --address=/dev/127.0.0.1
+
+  echo ""
+  docker ps
+}
+
+docker-serve-dot-dev() {
+  vhost="$(basename $PWD).dev"
+  echo "Serving current directory as $vhost:8080 ... Press Ctrl-C to stop serving"
+  docker run -it --rm -v $PWD:/usr/share/nginx/html/ -e VIRTUAL_HOST=$vhost nginx
+}
+
+docker-serve-localhost() {
+  echo "Serving current directory as localhost ... Press Ctrl-C to stop serving"
+  docker run -it --rm --name nginx-localhost -v $(pwd):/usr/share/nginx/html:ro -p 80:80 nginx
+}
+
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
 fi
