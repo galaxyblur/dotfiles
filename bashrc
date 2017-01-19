@@ -38,7 +38,7 @@ docker-serve-dot-dev() {
 
 docker-serve-localhost() {
   echo "Serving current directory as localhost ... Press Ctrl-C to stop serving"
-  docker run -it --rm --name nginx-localhost -v $(pwd):/usr/share/nginx/html:ro -p 80:80 nginx
+  docker run -it --rm --name nginx-localhost -v $PWD:/usr/share/nginx/html:ro -p 80:80 nginx
 }
 
 if [ -f ~/.bashrc.local ]; then
