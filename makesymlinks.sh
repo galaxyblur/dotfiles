@@ -14,7 +14,7 @@ files="vimrc gitconfig gitignore bash_profile bashrc npmrc" # list of files/fold
 
 # copy git-completion.bash
 echo -n "Copying git-completion.bash ..."
-cp git-completion.bash ~/git-completion.bash
+cp git-completion.bash ~/.git-completion.bash
 echo "done"
 
 # create dotfiles_old in homedir
