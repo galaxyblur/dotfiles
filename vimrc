@@ -38,17 +38,21 @@ set so=7
 
 set shiftwidth=2
 set tabstop=2         " number of visual spaces per TAB
+set softtabstop=2     " number of spaces in tab when editing
 set expandtab         " tabs are spaces
+
 set list
 set listchars=tab:>\  " > to highlight <tab> "
 
 set cursorline        " highlight current line
+set lazyredraw        " redraw only when we need to.
+set showmatch         " highlight matching [{()}]
 
 set number
 set relativenumber
 
 set t_Co=256 " enable 256-color mode.
-colorscheme ego
+colorscheme badwolf
 
 
 " Highlight characters that go over 80 columns (by drawing a border on the 81st)
@@ -66,3 +70,5 @@ set incsearch     " search as characters are entered
 set hlsearch      " highlight matches
 set ignorecase    " Make searches case-insensitive.
 set shiftround    " always indent/outdent to the nearest tabstop
+
+set pastetoggle=<F2>
