@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'tpope/vim-cucumber'
   Plug 'digitaltoad/vim-jade'
+  Plug 'jparise/vim-graphql'
 
 " Add plugins to &runtimepath
 call plug#end()
