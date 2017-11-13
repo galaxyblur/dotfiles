@@ -12,6 +12,8 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'flazz/vim-colorschemes'
 
+  Plug 'w0rp/ale'
+
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
   Plug 'mhinz/vim-signify'
@@ -29,6 +31,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-cucumber'
   Plug 'digitaltoad/vim-jade'
   Plug 'jparise/vim-graphql'
+  Plug 'posva/vim-vue'
 
 " Add plugins to &runtimepath
 call plug#end()
