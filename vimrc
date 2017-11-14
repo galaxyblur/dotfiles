@@ -14,6 +14,10 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'w0rp/ale'
 
+  "Requires +conceal.
+  "macOS: `sudo port install vim +huge` and reload via `source ~/.bash_profile`
+  Plug 'Yggdroot/indentLine'
+
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
   Plug 'mhinz/vim-signify'
