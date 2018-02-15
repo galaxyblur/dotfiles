@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'digitaltoad/vim-jade'
   Plug 'jparise/vim-graphql'
   Plug 'posva/vim-vue'
+  Plug 'briancollins/vim-jst'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -80,3 +81,17 @@ set ignorecase    " Make searches case-insensitive.
 set shiftround    " always indent/outdent to the nearest tabstop
 
 set pastetoggle=<F2>
+
+let g:vim_json_syntax_conceal = 0
+
+function! ToggleClean()
+  call IndentLinesToggle
+
+  if &number == 0
+    set number
+    set relativenumber
+  else
+    set nonumber
+    set norelativenumber
+  endif
+endfunction
