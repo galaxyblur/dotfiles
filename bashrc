@@ -10,10 +10,22 @@ fi
 export PATH=~/bin:$HOME/Library/Android/sdk/platform-tools/:$HOME/Library/Android/sdk/tools/:$HOME/.npm/bin:$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 umask 0002
+
+if [ $ITERM_SESSION_ID ]; then
+  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+fi
 
 gerpush() {
   git push gerrit HEAD:refs/for/$1
+}
+
+glgv() {
+  git log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | vim -R -c 'set filetype=git nowrap' -
 }
 
 # https://adrianperez.org/improving-dev-environments-all-the-http-things/
@@ -44,3 +56,15 @@ docker-serve-localhost() {
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
 fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/cbrown/.nvm/versions/node/v8.1.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/cbrown/.nvm/versions/node/v8.1.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/cbrown/.nvm/versions/node/v8.1.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/cbrown/.nvm/versions/node/v8.1.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+###-tns-completion-start-###
+if [ -f /Users/cbrown/.tnsrc ]; then 
+    source /Users/cbrown/.tnsrc 
+fi
+###-tns-completion-end-###
