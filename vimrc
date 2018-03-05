@@ -85,7 +85,7 @@ set pastetoggle=<F2>
 let g:vim_json_syntax_conceal = 0
 
 function! ToggleClean()
-  call IndentLinesToggle
+  IndentLinesToggle
 
   if &number == 0
     set number
