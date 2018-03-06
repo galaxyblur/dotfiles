@@ -9,10 +9,15 @@ set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
 call plug#begin('~/.vim/plugged')
 
   Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-unimpaired'
 
   Plug 'flazz/vim-colorschemes'
 
   Plug 'w0rp/ale'
+
+  Plug 'tpope/vim-vinegar'
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 
   "Requires +conceal.
   "macOS: `sudo port install vim +huge` and reload via `source ~/.bash_profile`
@@ -38,8 +43,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue'
   Plug 'briancollins/vim-jst'
 
+  Plug 'ryanoasis/vim-devicons'
+
 " Add plugins to &runtimepath
 call plug#end()
+
+map <Space> <Leader>
+set showcmd
+
+set encoding=utf-8
+set hidden
 
 
 " Buffer for cursor when using j/k
@@ -80,18 +93,34 @@ set hlsearch      " highlight matches
 set ignorecase    " Make searches case-insensitive.
 set shiftround    " always indent/outdent to the nearest tabstop
 
-set pastetoggle=<F2>
+if has('mac')
+  set guifont=DroidSansMono_Nerd_Font:h11
+else " linux, bsd, etc
+  set guifont=DroidSansMono\ Nerd\ Font\ 11
+endif
 
 let g:vim_json_syntax_conceal = 0
+let g:airline_powerline_fonts = 1
+
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 function! ToggleClean()
-  IndentLinesToggle
-
   if &number == 0
     set number
     set relativenumber
+    IndentLinesEnable
+    SignifyEnable
   else
     set nonumber
     set norelativenumber
+    IndentLinesDisable
+    SignifyDisable
   endif
 endfunction
+
+
+nnoremap <Leader>clip :tab sb +call\ ToggleClean()<CR>
+nnoremap <Leader>clipq :tabclose<CR>
+map <F3> :call ToggleClean()<CR>
+set pastetoggle=<F2>
