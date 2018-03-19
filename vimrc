@@ -102,9 +102,6 @@ endif
 let g:vim_json_syntax_conceal = 0
 let g:airline_powerline_fonts = 1
 
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 function! ToggleClean()
   if &number == 0
     set number
