@@ -1,0 +1,23 @@
+[user]
+	name = Corky Brown
+	email = cbrown@themeetgroup.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	lg = log --graph --pretty=format:'%Cgreen%>(12,trunc)%cr%Creset %C(bold blue)%>(15,trunc)%an%Creset %Cred%h%Creset%C(yellow)%d%Creset %s' --abbrev-commit --date=relative
+[core]
+	editor = vim
+	excludesfile = /Users/cbrown/.gitignore
+[push]
+	default = current
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
