@@ -64,7 +64,9 @@ set softtabstop=2     " number of spaces in tab when editing
 set expandtab         " tabs are spaces
 
 set list
-set listchars=tab:>\  " > to highlight <tab> "
+"set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+
 
 set cursorline        " highlight current line
 set lazyredraw        " redraw only when we need to.
