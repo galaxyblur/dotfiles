@@ -114,6 +114,7 @@ endif
 
 let g:vim_json_syntax_conceal = 0
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 function! ToggleClean()
   if &number == 0
