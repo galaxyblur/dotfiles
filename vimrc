@@ -15,39 +15,38 @@ call plug#begin('~/.vim/plugged')
   Plug 'gruvbox-community/gruvbox'
 
   " Linting
-  Plug 'w0rp/ale'
-
-  "Plug 'tpope/vim-vinegar'
-  "Plug 'scrooloose/nerdtree'
-  "Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'dense-analysis/ale'
 
   "Requires +conceal.
   "macOS: `sudo port install vim +huge` and reload via `source ~/.bash_profile`
   Plug 'Yggdroot/indentLine'
 
-  "Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
   Plug 'mhinz/vim-signify'
-  "Plug 'vim-scripts/Align'
   Plug 'ap/vim-css-color'
-
-  " Require python
-  "Plug 'Valloric/YouCompleteMe'
-  "Plug 'marijnh/tern_for_vim'
+  Plug 'ryanoasis/vim-devicons'
 
   Plug 'sheerun/vim-polyglot'
 
-  "Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
-  "Plug 'groenewege/vim-less'
-  "Plug 'elzr/vim-json'
-  "Plug 'mustache/vim-mustache-handlebars'
-  "Plug 'tpope/vim-cucumber'
-  "Plug 'digitaltoad/vim-jade'
-  "Plug 'jparise/vim-graphql'
-  "Plug 'posva/vim-vue'
-  "Plug 'briancollins/vim-jst'
+  " Javascript syntax highlighting
+  Plug 'pangloss/vim-javascript'
 
-  Plug 'ryanoasis/vim-devicons'
+  " Typescript syntax highlighting
+  Plug 'leafgarland/typescript-vim'
+  " Plug 'leafOfTree/vim-vue-plugin'
+
+  " Vue.js syntax highlighting
+  Plug 'posva/vim-vue'
+
+  " Web development auto-completion
+  Plug 'mattn/emmet-vim'
+
+  " Fuzzy finding and buffer management
+  Plug 'Shougo/denite.nvim'
+
+  " Intellisense code engine, auto-completion, linting, code fixing
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+  " CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-vetur
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -97,8 +96,6 @@ else
   highlight OverLength ctermbg=red ctermfg=white guibg=#592929
   match OverLength /\%101v.\+/
 endif
-
-
 
 set incsearch     " search as characters are entered
 set hlsearch      " highlight matches
