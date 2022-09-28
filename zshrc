@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.npm/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.npm/bin:/Users/cbrown/.local/bin:$PATH
 
 ZSH_DISABLE_COMPFIX="true"
 
@@ -104,9 +104,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias vim="nvim"
-alias vi="nvim"
+alias vim="lvim"
+alias vi="lvim"
 alias oldvim="vim" # can also type \vim
 
-alias vimdiff='nvim -d'
-export EDITOR=nvim
+alias vimdiff='lvim -d'
+export EDITOR=lvim
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre
