@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.npm/bin:/Users/cbrown/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.npm/bin:/Users/cbrown/.local/bin:$HOME/.cargo/env:$PATH
 
 ZSH_DISABLE_COMPFIX="true"
 
@@ -111,4 +111,4 @@ alias oldvim="vim" # can also type \vim
 alias vimdiff='lvim -d'
 export EDITOR=lvim
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre
