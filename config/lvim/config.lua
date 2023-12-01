@@ -12,17 +12,21 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.colorscheme = "onedarker"
+vim.opt.timeoutlen = 500
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
--- keymappings [view all the defaults by pressing <leader>Lk]
+-- keymappings [view all the defaults by pressing <Leader>Lk]
 lvim.leader = "space"
+
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["[b"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["]b"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+--
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -46,7 +50,15 @@ lvim.keys.normal_mode["]b"] = ":BufferLineCycleNext<CR>"
 --   },
 -- }
 
--- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.setup.plugins.presets.g = true
+lvim.builtin.which_key.setup.plugins.presets.motions = true
+lvim.builtin.which_key.setup.plugins.presets.nav = true
+lvim.builtin.which_key.setup.plugins.presets.operators = true
+lvim.builtin.which_key.setup.plugins.presets.text_objects = true
+lvim.builtin.which_key.setup.plugins.presets.windows = true
+lvim.builtin.which_key.setup.plugins.presets.z = true
+
+-- Use which-key to add extra bindings with the Leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
@@ -173,6 +185,11 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
   {
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function() require"lsp_signature".on_attach() end,
+  },
+  {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({ "css", "scss", "html", "javascript", "typescript" }, {
@@ -186,9 +203,7 @@ lvim.plugins = {
       })
     end,
   },
-  {
-    "tpope/vim-surround",
-  }
+  { "tpope/vim-surround" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
