@@ -57,8 +57,12 @@ return {
       ["<C-j>"] = { ":wincmd j<CR>", "Go to bottom window" },
       ["<C-h>"] = { ":wincmd h<CR>", "Go to left window" },
       ["<C-l>"] = { ":wincmd l<CR>", "Go to right window" },
-
-      -- See also: formatting.lua, gitsigns.lua, todo-comments.lua
     })
+
+    wk.register({
+      ["<Leader>/"] = { ":CommentToggle<CR>", "[/] Toggle comment" },
+    }, { mode = { "n", "v" } })
+
+    -- See also: formatting.lua, gitsigns.lua, todo-comments.lua
   end,
 }
