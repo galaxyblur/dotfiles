@@ -12,7 +12,7 @@
 	co = checkout
 	lg = log --graph --pretty=format:'%Cgreen%>(12,trunc)%cr%Creset %C(bold blue)%>(15,trunc)%an%Creset %Cred%h%Creset%C(yellow)%d%Creset %s' --abbrev-commit --date=relative
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = /Users/cbrown/.gitignore
 [push]
 	default = current
