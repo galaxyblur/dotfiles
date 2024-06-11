@@ -12,44 +12,58 @@ return {
     },
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
+      local wk = require("which-key")
 
-			local function map(mode, l, r, desc)
-				vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
-			end
+      wk.register({
+        ["]h"] = { function() gs.next_hunk() end, "Next Hunk" },
+        ["[h"] = { function() gs.prev_hunk() end, "Prev Hunk" },
 
-			-- Navigation
-			map("n", "]h", gs.next_hunk, "Next Hunk")
-			map("n", "[h", gs.prev_hunk, "Prev Hunk")
+        ["<Leader>"] = {
+          h = {
+            name = "[H]unk...",
+            s = { function() gs.stage_hunk() end, "Stage hunk" },
+            r = { function() gs.reset_hunk() end, "Reset hunk" },
+            S = { function() gs.stage_buffer() end, "Stage buffer" },
+            R = { function() gs.reset_buffer() end, "Reset buffer" },
+            u = { function() gs.undo_stage_hunk() end, "Undo stage hunk" },
+            p = { function() gs.preview_hunk() end, "Preview hunk" },
+            b = {
+              function()
+                gs.blame_line({ full = true })
+              end,
+              "Blame line",
+            },
+            B = { function() gs.toggle_current_line_blame() end, "Toggle line blame" },
+            d = { function() gs.diffthis() end, "Diff this" },
+            D = { function() gs.diffthis("~") end, "Diff this ~" },
+          },
+        },
+      })
 
-			-- Actions
-			map("n", "<Leader>hs", gs.stage_hunk, "Stage hunk")
-			map("n", "<Leader>hr", gs.reset_hunk, "Reset hunk")
-			map("v", "<Leader>hs", function()
-				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-			end, "Stage hunk")
-			map("v", "<Leader>hr", function()
-				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-			end, "Reset hunk")
-
-			map("n", "<Leader>hS", gs.stage_buffer, "Stage buffer")
-			map("n", "<Leader>hR", gs.reset_buffer, "Reset buffer")
-
-			map("n", "<Leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
-
-			map("n", "<Leader>hp", gs.preview_hunk, "Preview hunk")
-
-			map("n", "<Leader>hb", function()
-				gs.blame_line({ full = true })
-			end, "Blame line")
-			map("n", "<Leader>hB", gs.toggle_current_line_blame, "Toggle line blame")
-
-			map("n", "<Leader>hd", gs.diffthis, "Diff this")
-			map("n", "<Leader>hD", function()
-				gs.diffthis("~")
-			end, "Diff this ~")
+      wk.register({
+        ["<Leader>"] = {
+          h = {
+            name = "[H]unk...",
+            s = {
+              function()
+                gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+              end,
+              "Stage hunk",
+            },
+            r = {
+              function()
+                gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+              end,
+              "Reset hunk",
+            },
+          },
+        },
+      }, { mode = "v" })
 
 			-- Text object
-			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
+      wk.register({
+        ["ih"] = { ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk" },
+      }, { mode = { "o", "x" } })
 		end,
 	},
 }

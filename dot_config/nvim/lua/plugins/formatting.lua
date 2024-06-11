@@ -27,12 +27,24 @@ return {
 			},
 		})
 
-		vim.keymap.set({ "n", "v" }, "<Leader>mp", function()
-			conform.format({
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			})
-		end, { desc = "Format code via conform.nvim" })
+    local wk = require("which-key")
+    wk.register({
+      ["<Leader>"] = {
+        c = {
+          name = "[C]ode...",
+          f = {
+            function()
+              conform.format({
+                lsp_fallback = true,
+                async = false,
+                timeout_ms = 1000,
+              })
+              print("Code formatted")
+            end,
+            "Format code",
+          },
+        },
+      },
+    }, { mode = { "n", "v" } })
 	end,
 }
