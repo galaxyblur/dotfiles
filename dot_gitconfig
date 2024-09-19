@@ -1,8 +1,8 @@
 [include]
   path = .gitconfig-galaxyblur
 
-[includeIf "gitdir:~/TMG/"]
-  path = .gitconfig-tmg
+[includeIf "gitdir:~/Noom"]
+  path = .gitconfig-noom
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
