@@ -1,7 +1,7 @@
 [include]
   path = .gitconfig-galaxyblur
 
-[includeIf "gitdir:~/noomdev"]
+[includeIf "gitdir:~/noomdev/"]
   path = .gitconfig-noom
 [filter "lfs"]
 	clean = git-lfs clean -- %f
