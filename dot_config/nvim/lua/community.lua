@@ -15,4 +15,7 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.utility.hover-nvim" },
+  { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.completion.avante-nvim" },
 }
