@@ -24,3 +24,17 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "text" },
   command = "setlocal wrap",
 })
+
+-- Add glsl filetypes
+vim.filetype.add {
+  extension = {
+    ["vert"] = "glsl",
+    ["tesc"] = "glsl",
+    ["tese"] = "glsl",
+    ["frag"] = "glsl",
+    ["geom"] = "glsl",
+    ["comp"] = "glsl",
+    ["vs"] = "glsl",
+    ["fs"] = "glsl",
+  },
+}

@@ -115,10 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ls="eza -lh --git --icons"
 alias lsa="eza -alh --git --icons"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+compdef eza=ls
 
 alias vim="nvim"
 alias vi="nvim"
@@ -136,3 +133,20 @@ export HOMEBREW_REPOSITORY="/opt/homebrew";
 PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/Users/cbrown/bin:/usr/local/bin:/Users/cbrown/.npm/bin:/Users/cbrown/.local/bin:/Users/cbrown/.cargo/env:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Applications/iTerm.app/Contents/Resources/utilities"; export PATH;
 [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Auto-use .nvmrc version if present, otherwise use default
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use --silent
+  elif [[ $(nvm current) == "system" ]]; then
+    nvm use default --silent
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
