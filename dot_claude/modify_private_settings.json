@@ -1,0 +1,12 @@
+#!/bin/sh
+# Ensure Claude Code runs assistants-visit at session start. Leaves the rest of
+# settings.json alone; machines differ, so the file itself stays unmanaged.
+cmd='[ -x ~/.local/bin/assistants-visit ] && ~/.local/bin/assistants-visit "$CLAUDE_PROJECT_DIR" || true'
+input=$(cat)
+[ -n "$input" ] || input='{}'
+if ! command -v jq >/dev/null 2>&1 \
+  || printf '%s' "$input" | jq -e --arg c "$cmd" '[.hooks.SessionStart[]?.hooks[]?.command] | index($c) != null' >/dev/null 2>&1; then
+  printf '%s\n' "$input"
+  exit 0
+fi
+printf '%s' "$input" | jq --arg c "$cmd" '.hooks.SessionStart += [{hooks: [{type: "command", command: $c}]}]'

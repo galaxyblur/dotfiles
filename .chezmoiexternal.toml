@@ -1,0 +1,7 @@
+# ASSISTANTS.md reference tool, pinned to v0.2.0 by commit.
+# Wakes a person's assistant when a session starts in one of its wallet spaces.
+# Per-machine config (not managed here): ~/.config/assistants/homes, one home path per line.
+[".local/bin/assistants-visit"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/galaxyblur/ASSISTANTS.md/59630e24b24a6155667dea09e51490366f1a3dff/tools/assistants-visit"
+    executable = true
