@@ -1,12 +1,16 @@
 #!/bin/sh
-# Ensure Claude Code runs assistants-visit at session start. Leaves the rest of
-# settings.json alone; machines differ, so the file itself stays unmanaged.
-cmd='[ -x ~/.local/bin/assistants-visit ] && ~/.local/bin/assistants-visit "$CLAUDE_PROJECT_DIR" || true'
+# Ensure Claude Code's assistant session hooks: assistants-visit wakes the assistant,
+# and a herdr pane label names it. Leaves the rest of settings.json alone; machines
+# differ, so the file itself stays unmanaged.
+wake='[ -x ~/.local/bin/assistants-visit ] && ~/.local/bin/assistants-visit "$CLAUDE_PROJECT_DIR" || true'
+label='id=$(~/.local/bin/assistants-visit --id "$CLAUDE_PROJECT_DIR" 2>/dev/null) && [ -n "$id" ] && [ -n "$HERDR_PANE_ID" ] && herdr pane report-metadata "$HERDR_PANE_ID" --source assistants --agent claude --display-agent "${id%%+*} (claude)" >/dev/null 2>&1; true'
 input=$(cat)
 [ -n "$input" ] || input='{}'
-if ! command -v jq >/dev/null 2>&1 \
-  || printf '%s' "$input" | jq -e --arg c "$cmd" '[.hooks.SessionStart[]?.hooks[]?.command] | index($c) != null' >/dev/null 2>&1; then
+if ! command -v jq >/dev/null 2>&1; then
   printf '%s\n' "$input"
   exit 0
 fi
-printf '%s' "$input" | jq --arg c "$cmd" '.hooks.SessionStart += [{hooks: [{type: "command", command: $c}]}]'
+for c in "$wake" "$label"; do
+  input=$(printf '%s' "$input" | jq --arg c "$c" 'if [.hooks.SessionStart[]?.hooks[]?.command] | index($c) != null then . else .hooks.SessionStart += [{hooks: [{type: "command", command: $c}]}] end')
+done
+printf '%s\n' "$input"
