@@ -40,5 +40,5 @@ When a classification is unclear, or something might be sensitive, ask before co
 - Installs run from `run_onchange_` scripts that embed a hash of what they install (e.g. a Brewfile), never plain `run_` scripts that repeat on every apply.
 - `~/.claude/settings.json` stays unmanaged except through `dot_claude/modify_private_settings.json`, which only ensures the session hook. Machines differ; don't take the file over.
 - `chezmoi doctor` diagnoses setup problems. `chezmoi verify` exits 0 when the machine is tidy.
-- **This repo is public.** Personal machines only. The work machine keeps its own fork.
+- **This repo is public.** Personal machines only. Work machines use a separate dotfiles repo; nothing work-related belongs here.
 - Commit subjects are short and imperative, matching the existing history.

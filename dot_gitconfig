@@ -1,8 +1,21 @@
-[include]
-  path = .gitconfig-galaxyblur
-
-[includeIf "gitdir:~/noomdev/"]
-  path = .gitconfig-noom
+[user]
+	name = Corky Brown
+	email = galaxyblur@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	lg = log --graph --pretty=format:'%Cgreen%>(12,trunc)%cr%Creset %C(bold blue)%>(15,trunc)%an%Creset %Cred%h%Creset%C(yellow)%d%Creset %s' --abbrev-commit --date=relative
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore
+[push]
+	default = current
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -21,11 +34,6 @@
 
 [pager]
   difftool = true
-[credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 
 # Machine-local, unmanaged. Keep last so it wins.
 [include]
