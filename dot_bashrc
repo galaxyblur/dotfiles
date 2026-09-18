@@ -68,3 +68,5 @@ if [ -f /Users/cbrown/.tnsrc ]; then
     source /Users/cbrown/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+export PATH="$HOME/.local/bin:$PATH"

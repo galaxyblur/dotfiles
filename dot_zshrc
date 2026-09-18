@@ -122,6 +122,9 @@ alias vi="nvim"
 alias oldvim="vim" # can also type \vim
 
 alias vimdiff='nvim -d'
+
+# live git status for a side pane; staged files = "Changes to be committed"
+alias gwatch='viddy -n 2 -d -s git -c color.status=always -c advice.statusHints=false status -b'
 export EDITOR=nvim
 
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre
@@ -150,3 +153,8 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/cbrown/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
