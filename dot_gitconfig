@@ -26,3 +26,7 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+
+# Machine-local, unmanaged. Keep last so it wins.
+[include]
+  path = .gitconfig.local

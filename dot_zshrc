@@ -158,3 +158,6 @@ fpath=(/Users/cbrown/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# Machine-local, unmanaged (see AGENTS.md § Shared or local). Keep last.
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

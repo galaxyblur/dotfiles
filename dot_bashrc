@@ -70,3 +70,6 @@ fi
 ###-tns-completion-end-###
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# Machine-local, unmanaged (see AGENTS.md § Shared or local). Keep last.
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
