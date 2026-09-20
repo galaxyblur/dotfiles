@@ -1,8 +1,8 @@
-# ASSISTANTS.md reference tool, pinned to v0.4.0 by commit.
+# ASSISTANTS.md reference tool, pinned to v0.5.0 by commit.
 # Wakes a person's assistant when a session starts in one of its wallet spaces.
-# `--id` names the assistant for status lines and pane labels.
+# `--id` names the assistant for status lines and pane labels; `--pack` writes a carried set.
 # Per-machine config (not managed here): ~/.config/assistants/homes, one home path per line.
 [".local/bin/assistants-visit"]
     type = "file"
-    url = "https://raw.githubusercontent.com/galaxyblur/ASSISTANTS.md/fb635c61ec9819968fa128b7f236e29a88049ee0/tools/assistants-visit"
+    url = "https://raw.githubusercontent.com/galaxyblur/ASSISTANTS.md/0a582ba49660adc5db75b111be2a0adf8f7149a5/tools/assistants-visit"
     executable = true
