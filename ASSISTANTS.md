@@ -1,5 +1,5 @@
 ---
-assistants-spec: 0.3.0
+assistants-spec: 0.4.0
 members: [galaxyblur@github.com]
 issuers: [github.com]
 assistants: allowed        # allowed | none
@@ -12,7 +12,7 @@ unattributed: read-only    # read-only | none
 
 # ASSISTANTS.md
 
-How this space receives agents acting for a person. How to work on these dotfiles lives in AGENTS.md. Spec: [ASSISTANTS.md v0.3.0](https://github.com/galaxyblur/ASSISTANTS.md).
+How this space receives agents acting for a person. How to work on these dotfiles lives in AGENTS.md. Spec: [ASSISTANTS.md v0.4.0](https://github.com/galaxyblur/ASSISTANTS.md).
 
 ## Arrival
 
